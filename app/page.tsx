@@ -22,6 +22,7 @@ import { Search } from "../components/dashboard/search";
 import { SignIn } from "../components/dashboard/signIn";
 import { auth } from "@/auth";
 import { ModeToggle } from "@/components/ui/ModeToggle";
+import Navbar from "./ui-components/Nav";
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -30,6 +31,7 @@ export const metadata: Metadata = {
 
 export default async function DashboardPage() {
   const session = await auth();
+  
   if (!session)
     return (
       <>
@@ -37,9 +39,7 @@ export default async function DashboardPage() {
         <div className="flex h-16 items-center px-4">
           <MainNav className="mx-6" />
           <div className="ml-auto flex items-center space-x-4">
-            <Search />
-            <ModeToggle />
-            <SignIn />
+            <Navbar session={null} />
           </div>
         </div>
       </div>
@@ -71,9 +71,7 @@ export default async function DashboardPage() {
           <div className="flex h-16 items-center px-4">
             <MainNav className="mx-6" />
             <div className="ml-auto flex items-center space-x-4">
-              <Search />
-              <ModeToggle />
-              <SignIn />
+              <Navbar session={session} />
             </div>
           </div>
         </div>

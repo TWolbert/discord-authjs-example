@@ -36,7 +36,7 @@ export async function UserNav() {
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">{session.user?.name}</p>
             <p className="text-xs leading-none text-muted-foreground">
-              {session.user?.email}
+              @{session.user?.name}
             </p>
           </div>
         </DropdownMenuLabel>
@@ -46,12 +46,8 @@ export async function UserNav() {
             Profile
           </DropdownMenuItem>
           <DropdownMenuItem>
-            Billing
-          </DropdownMenuItem>
-          <DropdownMenuItem>
             Settings
           </DropdownMenuItem>
-          <DropdownMenuItem>New Team</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
